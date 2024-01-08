@@ -10,17 +10,23 @@ pipeline {
     stages {
         stage("Init"){
             steps{
-                sh "terraform init"
+                withAWS(credentials: 'ransomnumber1', region: 'us-east-1'){
+                    sh "terraform init"
+                }
             }
         }
         stage("Plan"){
             steps {
-                sh "terraform plan"
+                withAWS(credentials: 'ransomnumber1', region: 'us-east-1'){
+                    sh "terraform plan"
+                }
             }
         }
         stage("Apply"){
             steps{
-                sh "terraform apply -auto-approve"
+                withAWS(credentials: 'ransomnumber1', region: 'us-east-1'){
+                    sh "terraform apply -auto-approve"
+                }
             }
         }
     }
