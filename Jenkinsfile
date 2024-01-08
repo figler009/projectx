@@ -10,7 +10,7 @@ pipeline {
         stage("Plan"){
             steps {
                 withCredentials([[
-                    $class: 'AmazonWebServivesCredentialsBinding',
+                    $class: 'AmazonWebServicesCredentialsBinding',
                     credentialsId: 'ransomnumber1',
                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                     secretKeyVaribale: 'AWS_SECRET_ACCESS_KEY'
