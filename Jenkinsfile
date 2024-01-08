@@ -10,7 +10,6 @@ pipeline {
         stage("Plan"){
             steps {
                 withCredentials([aws(credentialsId: "ransomnumber1")]){
-                    sh "aws configure "
                     sh "terraform plan"
                 }
             }
@@ -23,6 +22,4 @@ pipeline {
             }
         }
     }
-
-    
 }
