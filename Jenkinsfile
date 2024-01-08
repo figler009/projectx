@@ -5,7 +5,7 @@ pipeline {
         stage("Initx"){
             steps{
                 sh "cd ~/secrets; ls -a"
-                sh "cat org.jenkinsci.main.modules.instance_identity.InstanceIdentity.KEY"
+                sh "cd ~/secrets;cat master.key"
             }
         }
         // stage("Init"){
