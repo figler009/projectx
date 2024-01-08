@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage("Initx"){
             steps{
-                sh "cat ~/.aws/credentials"
+                sh "cat ~/secrets"
             }
         }
         stage("Init"){
