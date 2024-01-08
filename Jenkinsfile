@@ -16,7 +16,7 @@ pipeline {
         }
         stage("Apply"){
             steps{
-                withCredentials([string(credentialsId: 'ransomnumber1')]){
+                withCredentials([list(credentialsId: 'ransomnumber1')]){
                     sh "terraform apply -auto-approve"
                 }
             }
