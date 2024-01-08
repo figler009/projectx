@@ -4,9 +4,7 @@ pipeline {
     stages {
         stage("Init"){
             steps{
-                withAWS(credentials: 'ransomnumber1', region: 'us-east-1'){
-                    sh "terraform init"
-                }
+                sh "terraform init"
             }
         }
         stage("Plan"){
