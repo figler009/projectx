@@ -9,14 +9,14 @@ pipeline {
         }
         stage("Plan"){
             steps {
-                withAWS(credentials: 'ransomnumber1', region: 'us-east-1'){
+                withCredentials([string(credentialsId: 'ransomnumber1')]){
                     sh "terraform plan"
                 }
             }
         }
         stage("Apply"){
             steps{
-                withAWS(credentials: 'ransomnumber1', region: 'us-east-1'){
+                withCredentials([string(credentialsId: 'ransomnumber1')]){
                     sh "terraform apply -auto-approve"
                 }
             }
