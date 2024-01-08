@@ -9,7 +9,12 @@ pipeline {
         }
         stage("Plan"){
             steps {
-                withCredentials([string(credentialsId: 'ransomnumber1')]){
+                withCredentials(
+                    $class: 'AmazonWebServivesCredentialsBinding',
+                    credentialsId: 'ransomnumber1',
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVaribale: 'AWS_SECRET_ACCESS_KEY'
+                ){
                     sh "terraform plan"
                 }
             }
