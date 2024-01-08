@@ -9,17 +9,27 @@ pipeline {
         }
         stage("Plan"){
             steps {
-                withCredentials([aws(credentialsId: "ransomnumber1")]){
-                    sh "terraform plan"
-                }
+                sh "terraform plan"
             }
         }
         stage("Apply"){
             steps{
-                withCredentials([aws(credentialsId: "ransomnumber1")]){
-                    sh "terraform apply -auto-approve"
-                }
+                sh "terraform apply -auto-approve"
             }
         }
+        // stage("Plan"){
+        //     steps {
+        //         withCredentials([aws(credentialsId: "ransomnumber1")]){
+        //             sh "terraform plan"
+        //         }
+        //     }
+        // }
+        // stage("Apply"){
+        //     steps{
+        //         withCredentials([aws(credentialsId: "ransomnumber1")]){
+        //             sh "terraform apply -auto-approve"
+        //         }
+        //     }
+        // }
     }
 }
